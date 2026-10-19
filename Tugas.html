@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Andika</title>
+
+    <style>
+        /* RESET DAN PENGATURAN DASAR */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        :root {
+            --merah: #e50914;
+            --hitam: #0a0a0a;
+            --abu: #171717;
+            --putih: #ffffff;
+        }
+
+        /* NAVIGASI */
+        header {
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(10, 10, 10, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #292929;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--merah);
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #dddddd;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--merah);
+        }
+
+        /* BAGIAN BERANDA */
+        .hero {
+            min-height: 85vh;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background:
+                radial-gradient(
+                    circle at 85% 50%,
+                    rgba(229, 9, 20, 0.15),
+                    transparent 35%
+                ),
+                var(--hitam);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text .label {
+            color: var(--merah);
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.15;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: var(--merah);
+        }
+
+        .hero p {
+            color: #bdbdbd;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .tombol {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--merah);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tombol:hover {
+            background: #b00610;
+            transform: translateY(-3px);
+        }
+
+        /* FOTO / AVATAR PROFIL */
+        .profile-frame {
+            width: 300px;
+            height: 300px;
+            min-width: 240px;
+            border: 3px solid var(--merah);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #242424, #090909);
+            box-shadow: 0 0 35px rgba(229, 9, 20, 0.25);
+        }
+
+        .profile-frame span {
+            font-size: 100px;
+            font-weight: bold;
+            color: var(--merah);
+        }
+
+        /* BAGIAN PROFIL */
+        section {
+            padding: 80px 8%;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .judul span {
+            color: var(--merah);
+        }
+
+        .garis {
+            width: 65px;
+            height: 4px;
+            background: var(--merah);
+            margin: 0 auto 40px;
+            border-radius: 5px;
+        }
+
+        .about-text {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+            color: #bdbdbd;
+        }
+
+        /* KARTU INFORMASI */
+        .info-section {
+            background: #111111;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .info-card {
+            padding: 25px;
+            background: #191919;
+            border: 1px solid #303030;
+            border-left: 4px solid var(--merah);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--merah);
+        }
+
+        .info-card h3 {
+            color: var(--merah);
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* BAGIAN KONTAK */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #bdbdbd;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 22px;
+            text-align: center;
+            background: #111111;
+            border-top: 1px solid #292929;
+            color: #999999;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--merah);
+        }
+
+        /* RESPONSIVE UNTUK HP */
+        @media (max-width: 768px) {
+            header {
+                padding: 18px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 60px 6%;
+            }
+
+            .profile-frame {
+                width: 220px;
+                height: 220px;
+                min-width: 220px;
+            }
+
+            .profile-frame span {
+                font-size: 75px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <div class="logo">ANDI<span>KA.</span></div>
+
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#profil">Profil</a>
+            <a href="#informasi">Informasi</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
+
+    <!-- BERANDA -->
+    <main>
+        <section class="hero" id="beranda">
+
+            <div class="hero-text">
+                <div class="label">HALO, SELAMAT DATANG!</div>
+
+                <h1>
+                    Saya <span>Andika</span><br>
+                    Mahasiswa
+                </h1>
+
+                <p>
+                    Selamat datang di website profil pribadi saya.
+                    Di sini kamu bisa mengenal saya lebih dekat,
+                    mulai dari informasi diri hingga latar belakang
+                    pendidikan saya.
+                </p>
+
+                <a href="#profil" class="tombol">
+                    Kenali Saya
+                </a>
+            </div>
+
+            <div class="profile-frame">
+                <span>A</span>
+            </div>
+
+        </section>
+
+        <!-- TENTANG SAYA -->
+        <section id="profil">
+            <h2 class="judul">Tentang <span>Saya</span></h2>
+            <div class="garis"></div>
+
+            <p class="about-text">
+                Perkenalkan, nama saya Andika. Saya adalah seorang
+                mahasiswa berusia 19 tahun yang berasal dari Bandung.
+                Website ini dibuat sebagai halaman profil pribadi
+                untuk memperkenalkan diri dan membagikan informasi
+                singkat tentang saya.
+            </p>
+        </section>
+
+        <!-- INFORMASI PRIBADI -->
+        <section class="info-section" id="informasi">
+            <h2 class="judul">Informasi <span>Pribadi</span></h2>
+            <div class="garis"></div>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <h3>Nama Lengkap</h3>
+                    <p>Andika</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Pendidikan</h3>
+                    <p>Mahasiswa</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Usia</h3>
+                    <p>19 Tahun</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Alamat</h3>
+                    <p>Bandung</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="contact" id="kontak">
+            <h2 class="judul">Hubungi <span>Saya</span></h2>
+            <div class="garis"></div>
+
+            <p>
+                Terima kasih sudah mengunjungi website profil saya.
+                Senang bisa berkenalan dengan kamu!
+            </p>
+
+            <a
+                href="mailto:dikdiki@gmail.com"
+                class="tombol"
+            >
+                Kirim Email
+            </a>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; 2026 <span>Andika</span>.
+            Dibuat dengan HTML dan CSS.
+        </p>
+    </footer>
+
+</body>
+</html>
